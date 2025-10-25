@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới Thiệu Sản Phẩm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ck.css" />
+
+</head>
+<script src="../Login/auth.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const { getCurrentUser } = window.AuthUtils;
+    const me = getCurrentUser();
+    if (!me) {
+      window.location.href = "../Login/login.html";
+      return;
+    }
+    const el = document.getElementById("welcome");
+    if (el) el.textContent = `Xin chào, ${me.name || me.email}!`;
+  });
+</script>
+
+
+<body>
+
+   <!-- Transition Overlay -->
+   <div id="transition-overlay">
+    <img src="../images/nail logo-01.png" alt="Nailistas Logo">
+  </div>
+
+  <!-- Lớp nền mờ -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- ==================== HEADER ==================== -->
+  <!-- Header -->
+  <!-- Header -->
+  <!-- Header -->
+  <header>
+    <div class="nav-left">
+      <a href="../Blog/Blog.html" data-transition>Blog</a>
+      <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
+      <a href="Product.html" data-transition>Sản phẩm</a>
+      <a href="../Service/service.html" data-transition>Dịch vụ</a>
+    </div>
+  
+    <div class="logo-center">
+      <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+    </div>
+  
+    <div class="nav-right">
+      <a href="../contact/contact.html" data-transition>Liên hệ</a>
+      <a href="Login.html" data-transition>Đăng nhập</a>
+      <a href="PersonalPage.html" data-transition>Tài khoản</a>
+      <a href="../Cart/cart.html" data-transition>Giỏ hàng</a>
+    </div>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-images">
+      <div class="slide active"><div class="centered-image"><img src="../images/logo.png" alt="Logo Full Width"></div></div>
+      <div class="slide">
+        <video autoplay muted loop style="width:100%; height:100%; object-fit:cover;">
+          <source src="../video/nailstyle.mp4" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ video.
+        </video>
+      </div>      
+      <div class="slide">
+        <div class="slide-layout">
+          <img src="../images/DISCOUNT.png" alt="Discount">
+          <div class="info-box">
+            <h1 style="color:#1935E1">Ưu Đãi Đặc Biệt</h1>
+            <br>
+            <p>Giảm giá lên đến 50% cho các sản phẩm chăm sóc móng trong thời gian giới hạn. Đây là cơ hội tuyệt vời để bạn làm đẹp và tự thưởng cho bản thân những bộ móng hoàn hảo.</p>
+            <br>
+            <p>Khuyến mãi đặc biệt 20/10 – Mừng ngày Phụ nữ Việt Nam, tất cả khách hàng sẽ nhận quà tặng và ưu đãi hấp dẫn khi mua bất kỳ sản phẩm chăm sóc móng nào tại cửa hàng.</p>
+            <br>
+            <p>Ngoài ra, chúng tôi còn có chương trình ưu đãi combo cho những bộ sưu tập sơn móng hot trend, giúp bạn tiết kiệm chi phí và trải nghiệm nhiều màu sắc thời thượng.</p>
+            <br>
+            <p>Nhanh tay đặt hàng hoặc đến trực tiếp cửa hàng để không bỏ lỡ cơ hội nhận những phần quà xinh xắn và ưu đãi hấp dẫn này!</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-layout">
+          <img src="../images/eea413857e4cc310da82fe054a4f2ddb.jpg" alt="Đa dạng màu sắc">
+          <div class="info-box">
+            <h1 style="color:#1935E1">Đa dạng màu sắc</h1>
+            <br>
+            <p>Khám phá bộ sưu tập sơn móng với hàng trăm sắc độ thời thượng, từ những tông màu pastel nhẹ nhàng, đến những gam đậm cá tính, tất cả đều được chọn lựa kỹ lưỡng để phù hợp với mọi phong cách.</p>
+            <br>
+            <p>Dù bạn yêu thích vẻ nữ tính, sang trọng hay phá cách nổi bật, bộ sưu tập này đều mang đến sự lựa chọn hoàn hảo. Mỗi màu sắc đều giữ độ bền lâu, bóng mịn, giúp bạn tự tin thể hiện cá tính.</p>
+            <br>
+            <p>Hãy đến cửa hàng hoặc đặt online ngay hôm nay để không bỏ lỡ cơ hội thử nghiệm và sáng tạo với màu sắc yêu thích của riêng bạn!</p>
+            <br>
+            <a href="color.html" class="cta-button" data-transition>Xem Ngay</a>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-layout">
+          <!-- Video thay cho hình ảnh -->
+          <video autoplay muted loop style="width:55%; height:100%; object-fit:cover;">
+            <source src="../video/manicure.mp4" type="video/mp4" alt="Trình duyệt của bạn không hiển thị được video này">
+          </video>
+          <div class="info-box">
+            <h1 style="color:#1935E1">Quy trình tuyệt đối an toàn</h1>
+            <br>
+            <p>Tại Nailistas, mỗi bước chăm sóc móng đều tuân thủ quy trình an toàn tuyệt đối, đảm bảo vệ sinh và sức khỏe cho khách hàng.</p>
+            <br>
+            <p>Tất cả dụng cụ đều được khử trùng kỹ lưỡng, sản phẩm sử dụng đều là loại an toàn, thuần chay và không gây kích ứng da hay móng.</p>
+            <br>
+            <p>Nhân viên của chúng tôi được đào tạo bài bản, tuân thủ các tiêu chuẩn vệ sinh nghiêm ngặt, giúp bạn an tâm tận hưởng trải nghiệm làm đẹp tại tiệm.</p>
+            <br>
+            <p>Hãy đặt lịch hẹn ngay hôm nay để trải nghiệm dịch vụ chất lượng, an toàn và chuyên nghiệp!</p>
+            <br>
+            <a href="care.html" class="cta-button" data-transition>Xem Ngay</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- Info Section -->
+  <section class="info-section" id="services">
+    <h1>ABOUT US</h1>
+    <div class="info-columns">
+      <div class="info-block"><h3>Mission</h3><p>Chúng tôi cam kết mang đến sản phẩm chăm sóc sắc đẹp chất lượng, an toàn và thuần chay.</p></div>
+      <div class="info-block"><h3>Vision</h3><p>Trở thành thương hiệu mỹ phẩm hàng đầu tại Việt Nam, lan tỏa vẻ đẹp tự nhiên và bền vững.</p></div>
+      <div class="info-block"><h3>Value</h3><p>Chất lượng – Đạo đức – Sáng tạo là giá trị cốt lõi trong mọi sản phẩm và dịch vụ của chúng tôi.</p></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <div class="marquee-seq"><span>VẺ ĐẸP TỰ NHIÊN – PHONG CÁCH RIÊNG – NAILISTAS VIỆT NAM</span></div>
+      <div class="marquee-seq" aria-hidden="true"><span>VẺ ĐẸP TỰ NHIÊN – PHONG CÁCH RIÊNG – NAILISTAS VIỆT NAM</span></div>
+    </div>
+  </div>
+
+  <!-- Video + Sticker -->
+  <div id="sticker-section">
+    <video id="background-video" autoplay muted loop>
+      <source src="../video/finger.mp4" type="video/mp4" alt="Trình duyệt bạn không hiển thị được video này">
+    </video>
+    <img src="../images/nail logo [Recovered]-02.png" alt="Logo Nail" id="sticker-image">
+  </div>
+
+  <!-- Marquee ngược -->
+  <div class="marquee-banner reverse-marquee">
+    <div class="marquee-track">
+      <div class="marquee-seq"><span>Mỗi bộ móng là một tác phẩm – Thể hiện phong cách, thể hiện bản thân – Nailistas Việt Nam</span></div>
+      <div class="marquee-seq" aria-hidden="true"><span>Mỗi bộ móng là một tác phẩm – Thể hiện phong cách, thể hiện bản thân – Nailistas Việt Nam</span></div>
+    </div>
+  </div>
+
+  <!-- Collection -->
+  <section class="collection-section">
+    <div class="collection-card"><img src="../images/nail1.jpg" alt="Tops"><h3>XU HƯỚNG</h3></div>
+    <div class="collection-card"><img src="../images/nail2.jpeg" alt="Bottoms"><h3>MỚI LẠ</h3></div>
+    <div class="collection-card"><img src="../images/nail3.jpeg" alt="Outerwear"><h3>THỜI TRANG</h3></div>
+    <div class="collection-card"><img src="../images/nail4.jpg" alt="Accessories"><h3>ĐỘC ĐÁO</h3></div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="brand-story-section">
+    <div class="brand-story-images">
+      <div class="image-card"><img src="../images/nailstore1.jpeg" alt="Store"><h4>SANG TRỌNG</h4></div>
+      <div class="image-card"><img src="../images/nailstore2.webp" alt="Store bar"><h4>ĐA DẠNG MÀU SẮC</h4></div>
+    </div>
+    <div class="brand-story-text">
+      <h2>Câu chuyện<br><span>THƯƠNG HIỆU</span></h2>
+      <p>“Nailistas” được sinh ra từ tình yêu với nghệ thuật và phong cách cá nhân. Chúng tôi mang đến những trải nghiệm chăm sóc và sáng tạo, nơi mỗi bộ móng trở thành cách bạn thể hiện chính mình.</p>
+      <a href="brandstory.html" class="learn-more" data-transition>TÌM HIỂU THÊM</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section"><h3>Hệ thống chi nhánh</h3><p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p><p>📍 25 Lý Thường Kiệt, Hà Nội</p><p>📍 08 Bạch Đằng, Đà Nẵng</p></div>
+      <div class="footer-section"><h3>Liên hệ</h3><p>📞 Hotline: <strong>0909 888 777</strong></p><p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p></div>
+      <div class="footer-section"><h3>Chính sách</h3><p><a href="#">Chính sách bảo mật</a></p><p><a href="#">Điều khoản dịch vụ</a></p></div>
+    </div>
+    <hr>
+    <p>&copy; Nailistas Việt Nam</p>
+  </footer>
+  <!-- 🔵 Nút Facebook cố định -->
+  <a href="https://www.facebook.com/share/1K7fcAhSu3/?mibextid=wwXIfr" 
+    target="_blank" 
+    class="facebook-fixed">
+    <img src="../images/fb.png" alt="Facebook Logo">
+  </a>
+  <!-- 🔵 Nút gọi điện thoại cố định -->
+  <a href="tel:+84366549188" class="phone-fixed">
+    <img src="../images/phone.webp" alt="Phone Icon">
+  </a>
+  <script src="ck.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chăm sóc móng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="specialarticle.css" />
+</head>
+<body>
+
+  <!-- Transition Overlay -->
+  <div id="transition-overlay">
+    <img src="../images/nail logo-01.png" alt="Nailistas Logo">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-left">
+      <a href="../Blog/Blog.html" data-transition>Blog</a>
+      <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
+      <a href="Product.html" data-transition>Sản phẩm</a>
+      <a href="../Service/service.html" data-transition>Dịch vụ</a>
+    </div>
+  
+    <div class="logo-center">
+      <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+    </div>
+  
+    <div class="nav-right">
+      <a href="../contact/contact.html" data-transition>Liên hệ</a>
+      <a href="Login.html" data-transition>Đăng nhập</a>
+      <a href="PersonalPage.html" data-transition>Tài khoản</a>
+      <a href="../Cart/cart.html" data-transition>Giỏ hàng</a>
+    </div>
+  </header>
+
+  <!-- Layout 2 cột: Bài viết + Sidebar -->
+  <section class="blog-layout">
+    <!-- Cột trái: Bài viết chính -->
+    <article class="post">
+      <h1>CÁCH CHĂM SÓC SAU KHI LÀM MÓNG</h1>
+
+      <p>Sau khi hoàn thiện bộ móng, việc chăm sóc đúng cách đóng vai trò quan trọng để giữ móng bền đẹp và khỏe mạnh. Dưới đây là hướng dẫn chi tiết giúp bạn duy trì kết quả lâu dài.</p>
+
+      <p><strong>1) Giữ móng khô ráo trong 24 giờ đầu:</strong> Hạn chế tiếp xúc lâu với nước; khi rửa chén/lau dọn hãy đeo găng tay để tránh lớp sơn/keo suy yếu.</p>
+
+      <p><strong>2) Dưỡng móng và biểu bì mỗi ngày:</strong> Thoa dầu dưỡng (jojoba, vitamin E, hạnh nhân) lên viền móng 1–2 lần/ngày để giảm khô, giòn, bong tróc.</p>
+
+      <p><strong>3) Tránh dùng móng như “dụng cụ”:</strong> Không bẩy nắp hộp, cạy tem; khi gõ bàn phím hoặc thao tác, ưu tiên dùng đầu ngón tay.</p>
+
+      <p><strong>4) Không tự bóc/tẩy sơn tại nhà:</strong> Bóc sơn làm mỏng bề mặt móng. Hãy đến tiệm để tháo bằng dung dịch/chuyên môn nhằm bảo toàn cấu trúc móng.</p>
+
+      <p><strong>5) Bảo vệ khỏi hóa chất:</strong> Chất tẩy rửa, thuốc nhuộm tóc… có thể làm xỉn màu/lão hóa lớp sơn. Luôn đeo găng, rửa tay sạch, lau khô sau khi tiếp xúc.</p>
+
+      <p><strong>6) Kết hợp dưỡng da tay:</strong> Dùng kem dưỡng giàu ẩm (shea butter/ceramide) sau khi rửa tay và trước khi ngủ để bàn tay mềm mại tôn bộ móng.</p>
+
+      <p><strong>7) Bảo dưỡng định kỳ tại Nailistas:</strong> Tẩy tế bào chết, làm sạch biểu bì, kiểm tra độ bám màu và refresh lớp top coat giúp màu bền, bề mặt bóng khỏe.</p>
+
+      <p>Một bộ móng đẹp là sự kết hợp giữa kỹ thuật chuẩn và thói quen bảo dưỡng đều đặn mỗi ngày. Hãy chăm sóc đôi tay như một phần phong cách sống tinh tế của bạn.</p>
+
+      <button class="back-btn" onclick="goBack()">QUAY LẠI</button>
+    </article>
+
+    <!-- Cột phải: Sidebar bài viết nổi bật -->
+    <aside class="sidebar">
+      <h3>Bài viết nổi bật</h3>
+
+      <a class="post-card" href="simple.html">
+        <div class="post-box">
+          <img src="../images/toigian.jpeg" alt="Xu hướng tối giản">
+          <div>
+            <div class="title">Xu hướng móng tối giản</div>
+            <div class="meta">3 phút đọc • Xu hướng</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="polish.html">
+        <div class="post-box">
+          <img src="../images/colortrend.jpeg" alt="Xu hướng màu 2025">
+          <div>
+            <div class="title">Xu hướng màu sơn 2025</div>
+            <div class="meta">3 phút đọc • Xu hướng</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="gelordip.html">
+        <div class="post-box">
+          <img src="../images/diporgel.jpeg" alt="So sánh Gel và Dip">
+          <div>
+            <div class="title">Gel hay Dip: Chọn gì?</div>
+            <div class="meta">4 phút đọc • So sánh</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="nailclean.html">
+        <div class="post-box">
+          <img src="../images/nailtow.jpeg" alt="Chuẩn vệ sinh tại Nailistas">
+          <div>
+            <div class="title">Chuẩn vệ sinh tại Nailistas</div>
+            <div class="meta">2 phút đọc • Hậu trường</div>
+          </div>
+        </div>
+      </a>
+    </aside>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Hệ thống chi nhánh</h3>
+        <p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p>
+        <p>📍 25 Lý Thường Kiệt, Hà Nội</p>
+        <p>📍 08 Bạch Đằng, Đà Nẵng</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liên hệ</h3>
+        <p>📞 Hotline: <strong>0909 888 777</strong></p>
+        <p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Chính sách</h3>
+        <p><a href="#">Chính sách bảo mật</a></p>
+        <p><a href="#">Điều khoản dịch vụ</a></p>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; Nailistas Việt Nam</p>
+  </footer>
+
+    <!-- 🔵 Nút Facebook cố định -->
+    <a href="https://www.facebook.com/share/1K7fcAhSu3/?mibextid=wwXIfr" 
+    target="_blank" 
+    class="facebook-fixed">
+    <img src="../images/fb.png" alt="Facebook Logo">
+  </a>
+  <!-- 🔵 Nút gọi điện thoại cố định -->
+  <a href="tel:+84366549188" class="phone-fixed">
+    <img src="../images/phone.webp" alt="Phone Icon">
+  </a>
+  <script src="specialarticle.js"></script>
+</body>
+</html>

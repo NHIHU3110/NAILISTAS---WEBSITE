@@ -1,0 +1,472 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #0033ff;
+}
+
+/* ---- Video nền ---- */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+/* ==================== HEADER ==================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(25, 53, 225, 1);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* NAVIGATION */
+.nav-left, .nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+/* LOGO */
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-center img {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.logo-center img:hover {
+  transform: scale(1.1);
+}
+
+/* LINKS */
+header a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+header a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+header a:hover {
+  color: #fff;
+}
+
+header a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---- Contact button ---- */
+.contact-btn-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.open-contact-btn {
+  background-color: #0033ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 35px 90px; /* tăng kích thước nút */
+  font-size: 36px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.open-contact-btn:hover {
+  background-color: #001dbf;
+  transform: scale(1.05);
+}
+
+/* ---- Overlay ---- */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* ---- Popup ---- */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 600px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  color: #0033ff;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.popup.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup-content {
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: #0033ff;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: #001dbf;
+}
+.popup h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* ---- Form ---- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto; /* Căn giữa form trong popup */
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.input-row input {
+  flex: 1;
+  box-sizing: border-box; /* Giữ kích thước ổn định */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1.5px solid #0033ff;
+  font-size: 15px;
+  font-family: inherit;
+  transition: 0.3s;
+  color: #0033ff;
+  box-sizing: border-box; /* Tránh tràn kích thước */
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #001dbf;
+  box-shadow: 0 0 5px rgba(0, 51, 255, 0.4);
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+
+/* ---- Buttons ---- */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.send-button {
+  background-color: #0033ff;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 80px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.send-button:hover {
+  background-color: #001dbf;
+  transform: scale(1.02);
+}
+.call-button {
+  background-color: #ffffff;
+  border: 2px solid #0033ff;
+  border-radius: 16px;
+  padding: 14px 80px;
+  color: #0033ff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.call-button:hover {
+  background-color: #0033ff;
+  color: white;
+}
+
+/* ---- Footer ---- */
+footer {
+  background-color: #1935E1;
+  color: #fff8f0;
+  padding: 40px 10%;
+  text-align: center;
+  animation: fadeInFooter 1s ease 0.5s both;
+}
+@keyframes fadeInFooter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+.footer-section {
+  flex: 1 1 250px;
+}
+.footer-section h3 {
+  color: #ffb6c1;
+  margin-bottom: 10px;
+}
+.footer-section a {
+  color: #fff8f0;
+  text-decoration: none;
+}
+.footer-section a:hover {
+  opacity: 0.8;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .popup {
+    width: 90%;
+    padding: 25px;
+  }
+  .input-row {
+    flex-direction: column;
+  }
+}
+
+/* ---- Transition Overlay ---- */
+#transition-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #1935E1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+#transition-overlay img {
+  width: 400px;
+  animation: pulse 1.2s infinite alternate;
+}
+@keyframes pulse {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.15); opacity: 0.8; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .story-container { flex-direction: column; padding: 50px 5%; }
+  .story-images, .story-text { flex: 1 1 100%; }
+  .logo-right img { height: 40px; }
+  .nav-left { gap: 15px; }
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+/* --- Nút Facebook cố định --- */
+.facebook-fixed {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.facebook-fixed img {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0.7);
+  transition: all 0.3s ease;
+}
+
+.facebook-fixed:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+}
+
+.facebook-fixed:hover img {
+  filter: brightness(1.2);
+}
+
+
+
+  /* --- Nút Điện thoại cố định --- */
+  .phone-fixed {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    overflow: hidden; 
+  }
+  
+  .phone-fixed img {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0.7);
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    mix-blend-mode: multiply;
+  }
+  
+  .phone-fixed:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+  }
+  
+  .phone-fixed:hover img {
+    filter: brightness(1.2);
+  }
+
+  /* --- Popup Cảm ơn --- */
+.thank-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.thank-popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.thank-content {
+  background: rgb(255, 255, 255);
+  color: #0033ff;
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 51, 255, 0.6);
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+.thank-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.thank-content p {
+  font-size: 16px;
+  color: #444;
+}
+
+/* Hiệu ứng phát sáng động */
+@keyframes glowPulse {
+  from { box-shadow: 0 0 20px rgba(0, 51, 255, 0.4); transform: scale(1); }
+  to { box-shadow: 0 0 40px rgba(0, 51, 255, 0.9); transform: scale(1.03); }
+}
