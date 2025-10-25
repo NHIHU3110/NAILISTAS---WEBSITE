@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch Vụ Làm Đẹp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="service.css" />
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="nav-left">
+      <a href="../Blog/Blog.html">Blog</a>
+      <a href="../Booking/Booking.html">Đặt lịch</a>
+      <a href="../">Sản phẩm</a>
+      <a href="../Service/service.html">Dịch vụ</a>
+    </div>
+    <div class="logo-center">
+        <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+    </div>
+    <div class="nav-right">
+      <a href="../contact/contact.html">Liên hệ</a>
+      <a href="../Login/login.html">Đăng nhập</a>
+      <a href="">Tài khoản</a>
+      <a href="../Cart/cart.html">Giỏ hàng</a>
+    </div>
+  </header>
+  <body>
+    <!-- Overlay chuyển trang -->
+<div id="transition-overlay">
+    <img src="../images/nail logo-01.png" alt="Logo Transition">
+  </div>
+
+
+  <!-- Lớp nền mờ -->
+  <div id="overlay" class="overlay"></div>
+
+  
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <div class="service-wrapper">
+    <!-- Service 1: Làm Móng Tay -->
+<section class="service-section">
+    <h1>LÀM MÓNG TAY</h1>
+    <p>Khám phá các dịch vụ móng tay tại Nailistas</p>
+    <div class="service-slider" data-slider="1">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          <div class="slider-box"><img src="images/manicure1.webp" alt="Móng Tay 1"></div>
+          <div class="slider-box"><img src="images/manicure2.webp" alt="Móng Tay 2"></div>
+          <div class="slider-box"><img src="images/manicure3.webp" alt="Móng Tay 3"></div>
+          <div class="slider-box"><img src="images/manicure4.avif" alt="Móng Tay 4"></div>
+          <div class="slider-box"><img src="images/manicure5.webp" alt="Móng Tay 5"></div>
+          <div class="slider-box"><img src="images/manicure6.webp" alt="Móng Tay 6"></div>
+        </div>
+      </div>
+      <button class="slider-btn right">&#10095;</button>
+    </div>
+  
+    <!-- Price and Description in a Box -->
+    <div class="service-box">
+      <!-- Price Table -->
+      <h3>Bảng Giá Dịch Vụ Móng Tay</h3>
+      <table class="price-table">
+        <tr>
+          <th>Dịch Vụ</th>
+          <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+          <td>Cắt da tay</td>
+          <td>30.000</td>
+        </tr>
+        <tr>
+          <td>Cắt móng tay</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Chăm sóc móng tay (cơ bản)</td>
+          <td>100.000</td>
+        </tr>
+        <tr>
+          <td>Làm Móng Tay Gel</td>
+          <td>250.000</td>
+        </tr>
+        <tr>
+          <td>Làm Móng Tay Chuyên Nghiệp</td>
+          <td>350.000</td>
+        </tr>
+      </table>
+      <button class="book-now-btn" onclick="window.location.href='../Booking/Booking.html'">
+        Đặt lịch ngay
+      </button>
+    </div>
+  </section>
+  
+  <!-- Service 2: Làm Móng Chân -->
+  <section class="service-section">
+    <h1>LÀM MÓNG CHÂN</h1>
+    <p>Thư giãn và làm đẹp cùng dịch vụ chăm sóc móng chân</p>
+    <div class="service-slider" data-slider="2">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          <div class="slider-box"><img src="images/pedicure1.jpeg" alt="Móng Chân 1"></div>
+          <div class="slider-box"><img src="images/pedicure2.jpeg" alt="Móng Chân 2"></div>
+          <div class="slider-box"><img src="images/pedicure3.webp" alt="Móng Chân 3"></div>
+          <div class="slider-box"><img src="images/pedicure4.webp" alt="Móng Chân 4"></div>
+          <div class="slider-box"><img src="images/pedicure5.webp" alt="Móng Chân 5"></div>
+          <div class="slider-box"><img src="images/pedicure6.jpeg" alt="Móng Chân 6"></div>
+        </div>
+      </div>
+      <button class="slider-btn right">&#10095;</button>
+    </div>
+  
+    <!-- Price and Description in a Box -->
+    <div class="service-box">
+      <!-- Price Table -->
+      <h3>Bảng Giá Dịch Vụ Móng Chân</h3>
+      <table class="price-table">
+        <tr>
+          <th>Dịch Vụ</th>
+          <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+          <td>Cắt da chân</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Cắt móng chân</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Chăm sóc móng chân (cơ bản)</td>
+          <td>100.000</td>
+        </tr>
+        <tr>
+          <td>Làm Móng Chân Gel</td>
+          <td>250.000</td>
+        </tr>
+        <tr>
+          <td>Làm Móng Chân Chuyên Nghiệp</td>
+          <td>400.000</td>
+        </tr>
+      </table>
+      <button class="book-now-btn" onclick="window.location.href='../Booking/Booking.html'">
+        Đặt lịch ngay
+      </button>
+    </div>
+  </section>
+  
+  <!-- Service 3: Gel Nail -->
+  <section class="service-section">
+    <h1>SƠN GEL</h1>
+    <p>Chăm sóc móng tay và chân với phương pháp sơn gel.</p>
+    <div class="service-slider" data-slider="3">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          <div class="slider-box"><img src="images/nailgel.avif" alt="Sơn Gel 1"></div>
+          <div class="slider-box"><img src="images/gelnail2.webp" alt="Sơn Gel 2"></div>
+          <div class="slider-box"><img src="images/gelnail3.jpeg" alt="Sơn Gel 3"></div>
+          <div class="slider-box"><img src="images/gelnail4.webp" alt="Sơn Gel 4"></div>
+          <div class="slider-box"><img src="images/gelnail5.webp" alt="Sơn Gel 5"></div>
+          <div class="slider-box"><img src="images/manicure6.webp" alt="Sơn Gel 6"></div>
+        </div>
+      </div>
+      <button class="slider-btn right">&#10095;</button>
+    </div>
+  
+    <!-- Price and Description in a Box -->
+    <div class="service-box">
+      <!-- Price Table -->
+      <h3>Bảng Giá Dịch Vụ Sơn Gel</h3>
+      <table class="price-table">
+        <tr>
+          <th>Dịch Vụ</th>
+          <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+          <td>Cắt da tay</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Cắt móng tay</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Chăm sóc móng tay (cơ bản)</td>
+          <td>100.000</td>
+        </tr>
+        <tr>
+          <td>Làm Gel Nail</td>
+          <td>250.000</td>
+        </tr>
+        <tr>
+          <td>Làm Gel Nail Cao Cấp</td>
+          <td>350.000</td>
+        </tr>
+      </table>
+  
+      <button class="book-now-btn" onclick="window.location.href='../Booking/Booking.html'">
+        Đặt lịch ngay
+    </button>
+    </div>
+  </section>
+  
+  <!-- Service 4: Acrylic Nail -->
+  <section class="service-section">
+    <h1>Acrylic Nail</h1>
+    <p>Chăm sóc móng tay và chân với Gel Nail bền đẹp, lâu dài.</p>
+    <div class="service-slider" data-slider="4">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          <div class="slider-box"><img src="images/acrylic1.webp" alt="Acrylic Nail 1"></div>
+          <div class="slider-box"><img src="images/acrylic2.jpeg" alt="Acrylic Nail 2"></div>
+          <div class="slider-box"><img src="images/acrylic3.jpeg" alt="Acrylic Nail 3"></div>
+          <div class="slider-box"><img src="images/acrylic4.webp" alt="Acrylic Nail 4"></div>
+          <div class="slider-box"><img src="images/acrylic5.jpeg" alt="Acrylic Nail 5"></div>
+          <div class="slider-box"><img src="images/acrylic6.jpeg" alt="Acrylic Nail 6"></div>
+        </div>
+      </div>
+      <button class="slider-btn right">&#10095;</button>
+    </div>
+  
+    <!-- Price and Description in a Box -->
+    <div class="service-box">
+      <!-- Price Table -->
+      <h3>Bảng Giá Dịch Vụ Acrylic Nail</h3>
+      <table class="price-table">
+        <tr>
+          <th>Dịch Vụ</th>
+          <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+          <td>Cắt da tay</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Cắt móng tay</td>
+          <td>50.000</td>
+        </tr>
+        <tr>
+          <td>Chăm sóc móng tay (cơ bản)</td>
+          <td>100.000</td>
+        </tr>
+        <tr>
+          <td>Làm Acrylic Nail</td>
+          <td>300.000</td>
+        </tr>
+        <tr>
+          <td>Làm Acrylic Nail Cao Cấp</td>
+          <td>400.000</td>
+        </tr>
+      </table>
+  
+      <button class="book-now-btn" onclick="window.location.href='../Booking/Booking.html'">
+        Đặt lịch ngay
+    </button>
+    
+    </div>
+  </section>
+  <section class="service-section">
+    <h1>Nail Art</h1>
+    <p>Thỏa sức sáng tạo với các mẫu Nail Art độc đáo, cá tính.</p>
+    <div class="service-slider" data-slider="5">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          <div class="slider-box"><img src="images/nailart1.webp" alt="Nail Art 1"></div>
+          <div class="slider-box"><img src="images/nailart2.jpeg" alt="Nail Art 2"></div>
+          <div class="slider-box"><img src="images/nailart3.jpeg" alt="Nail Art 3"></div>
+          <div class="slider-box"><img src="images/nailart4.jpeg" alt="Nail Art 4"></div>
+          <div class="slider-box"><img src="images/nailart5.jpeg" alt="Nail Art 5"></div>
+          <div class="slider-box"><img src="images/nailart6.jpeg" alt="Nail Art 6"></div>
+        </div>
+      </div>
+      <button class="slider-btn right">&#10095;</button>
+    </div>
+
+    <!-- Price and Description in a Box -->
+    <div class="service-box">
+      <h3>Bảng Giá Dịch Vụ Nail Art</h3>
+      <table class="price-table">
+        <tr>
+          <th>Dịch Vụ</th>
+          <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+          <td>Nail Art cơ bản</td>
+          <td>150.000</td>
+        </tr>
+        <tr>
+          <td>Nail Art nâng cao</td>
+          <td>250.000</td>
+        </tr>
+        <tr>
+          <td>Nail Art 3D</td>
+          <td>350.000</td>
+        </tr>
+        <tr>
+          <td>Nail Art cao cấp</td>
+          <td>500.000</td>
+        </tr>
+      </table>
+
+      <button class="book-now-btn" onclick="window.location.href='../Booking/Booking.html'">
+        Đặt lịch ngay
+      </button>
+    </div>
+</section>
+
+</div>
+
+<!-- SLOGAN TRƯỚC FOOTER -->
+<section class="slogan-section">
+    <img src="../images/nail logo [Recovered]-02.png"/>
+    <h2>Tỏa sáng theo cách của bạn</h2>
+    <p>Vì bạn xứng đáng với sự hoàn hảo trong từng chi tiết</p>
+  </section>
+
+  
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Hệ thống chi nhánh</h3>
+        <p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p>
+        <p>📍 25 Lý Thường Kiệt, Hà Nội</p>
+        <p>📍 08 Bạch Đằng, Đà Nẵng</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liên hệ</h3>
+        <p>📞 Hotline: <strong>0909 888 777</strong></p>
+        <p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Chính sách</h3>
+        <p><a href="#">Chính sách bảo mật</a></p>
+        <p><a href="#">Điều khoản dịch vụ</a></p>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; Nailistas Việt Nam</p>
+  </footer>
+   <!-- 🔵 Nút Facebook cố định -->
+   <a href="https://www.facebook.com/share/1K7fcAhSu3/?mibextid=wwXIfr" 
+   target="_blank" 
+   class="facebook-fixed">
+   <img src="../images/fb.png" alt="Facebook Logo">
+ </a>
+ <!-- 🔵 Nút gọi điện thoại cố định -->
+ <a href="tel:+84366549188" class="phone-fixed">
+   <img src="../images/phone.webp" alt="Phone Icon">
+ </a>
+
+  <script src="service.js"></script>
+</body>
+</html>
