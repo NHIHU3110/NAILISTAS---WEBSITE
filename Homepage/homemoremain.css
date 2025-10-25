@@ -185,7 +185,7 @@ header a:hover::after {
     /* --- Nút Facebook cố định --- */
     .facebook-fixed {
       position: fixed;
-      bottom: 25px;
+      bottom: 120px;
       right: 25px;
       z-index: 1000;
       display: flex;
@@ -215,41 +215,38 @@ header a:hover::after {
       filter: brightness(1.2);
     }
 
-    .story-images video {
-      border-radius: 15px; /* Adjust the radius as needed */
-      overflow: hidden;    /* Ensure no overflow of the content */
-    }
-       /* --- Nút Facebook cố định --- */
-    .phone-fixed {
-      position: fixed;
-      bottom: 100px;
-      right: 25px;
-      z-index: 1000;  /* Nút Facebook */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
-      overflow: hidden; 
-    }
-    .phone-fixed img {
-      width: 50px;
-      height: 50px;
-      filter: brightness(0.7);
-      transition: all 0.3s ease;
-    }
-    
-    .phone-fixed:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
-    }
-    
-    .phone-fixed:hover img {
-      filter: brightness(1.2);
-    }
-    
+   /* --- Nút phone cố định --- */
+.phone-fixed {
+  position: fixed;
+  bottom: 200px;
+  right: 25px;
+  z-index: 1000;  /* Nút Facebook */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  overflow: hidden; 
+}
+
+.phone-fixed img {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0.7);
+  transition: all 0.3s ease;
+}
+
+.phone-fixed:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+}
+
+.phone-fixed:hover img {
+  filter: brightness(1.2);
+}
+
       

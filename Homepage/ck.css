@@ -250,7 +250,7 @@ header a:hover::after {
     /* --- Nút Facebook cố định --- */
     .facebook-fixed {
       position: fixed;
-      bottom: 25px;
+      bottom: 120px;
       right: 25px;
       z-index: 1000;
       display: flex;
@@ -283,7 +283,7 @@ header a:hover::after {
    /* --- Nút phone cố định --- */
 .phone-fixed {
   position: fixed;
-  bottom: 100px;
+  bottom: 200px;
   right: 25px;
   z-index: 1000;  /* Nút Facebook */
   display: flex;
