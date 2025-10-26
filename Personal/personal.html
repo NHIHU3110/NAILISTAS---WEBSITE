@@ -402,8 +402,72 @@ input:focus, select:focus {
   cursor: pointer; /* Con trỏ chuột khi hover */
 }
 
+/* --- Nút Facebook cố định --- */
+.facebook-fixed {
+      position: fixed;
+      bottom: 120px;
+      right: 25px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+    }
 
+    .facebook-fixed img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(0.7);
+      transition: all 0.3s ease;
+    }
 
+    .facebook-fixed:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+    }
+
+    .facebook-fixed:hover img {
+      filter: brightness(1.2);
+    }
+
+   /* --- Nút phone cố định --- */
+.phone-fixed {
+  position: fixed;
+  bottom: 200px;
+  right: 25px;
+  z-index: 1000;  /* Nút Facebook */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  overflow: hidden; 
+}
+
+.phone-fixed img {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0.7);
+  transition: all 0.3s ease;
+}
+
+.phone-fixed:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+}
+
+.phone-fixed:hover img {
+  filter: brightness(1.2);
+}
 
   </style>
 
@@ -686,7 +750,16 @@ input:focus, select:focus {
     <hr>
     <p>&copy; Nailistas Việt Nam</p>
   </footer>
-
+    <!-- 🔵 Nút Facebook cố định -->
+    <a href="https://www.facebook.com/share/1K7fcAhSu3/?mibextid=wwXIfr" 
+        target="_blank" 
+        class="facebook-fixed">
+      <img src="../images/fb.png" alt="Facebook Logo">
+    </a>
+   <!-- 🔵 Nút gọi điện thoại cố định -->
+   <a href="tel:+84366549188" class="phone-fixed">
+    <img src="../images/phone.webp" alt="Phone Icon">
+  </a>
   <script src="../Homepage/ck.js"></script>
 </body>
 </html>
