@@ -270,10 +270,11 @@ footer {
 .facebook-fixed:hover img {
   filter: brightness(1.2);
 }
-/* --- Nút Facebook cố định --- */
+
+    /* --- Nút Facebook cố định --- */
     .facebook-fixed {
       position: fixed;
-      bottom: 25px;
+      bottom: 120px;
       right: 25px;
       z-index: 1000;
       display: flex;
@@ -306,9 +307,9 @@ footer {
    /* --- Nút phone cố định --- */
 .phone-fixed {
   position: fixed;
-  bottom: 100px;
+  bottom: 200px;
   right: 25px;
-  z-index: 1000;  /* Nút phone */
+  z-index: 1000;  /* Nút Facebook */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,5 +337,3 @@ footer {
 .phone-fixed:hover img {
   filter: brightness(1.2);
 }
-
-  
