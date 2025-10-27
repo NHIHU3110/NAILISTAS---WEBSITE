@@ -215,16 +215,17 @@ if (checkoutBtn) {
             phoneEl.style.border = '';
         }
 
-        // ======= KIỂM TRA LỜI NHẮN =======
         if(giftCheckbox && giftCheckbox.checked) {
-            if(!giftMessage || !giftMessage.value.trim()) {
-                giftMessage.style.border = '1px solid red';
-                alert('Bạn đã tick gửi lời nhắn, vui lòng nhập nội dung!');
-                return;
-            } else {
-                giftMessage.style.border = '';
-            }
-        }
+          if(!giftMessage || !giftMessage.value.trim()) {
+              // Nếu checkbox gửi lời nhắn tick nhưng chưa nhập nội dung
+              giftMessage.style.border = '1px solid red'; // viền đỏ báo lỗi
+              alert('Bạn đã tick gửi lời nhắn, vui lòng nhập nội dung!');
+              return; // Dừng hàm, không tiếp tục checkout / show QR
+          } else {
+              giftMessage.style.border = ''; // xóa viền đỏ nếu đã nhập
+          }
+      }
+      
 
         const ward = document.querySelectorAll('select')[2]?.value || "";
         const district = document.querySelectorAll('select')[1]?.value || "";
@@ -488,8 +489,8 @@ if (checkoutBtn) {
         // Xác định QR
         const label = selectedPayment.closest('label') || selectedPayment.parentElement;
         let qrSrc = '';
-        if(label.textContent.includes("Ví MoMo")) qrSrc = "https://example.com/momo-qr.png";
-        else if(label.textContent.includes("ATM/VISA/MASTER")) qrSrc = "https://example.com/visa-qr.png";
+        if(label.textContent.includes("Ví MoMo")) qrSrc = "images/facebook_qrcode.png";
+        else if(label.textContent.includes("ATM/VISA/MASTER")) qrSrc = "images/facebook_qrcode.png";
 
         // Hiển thị QR nếu có
         if(qrSrc) showQR(qrSrc);
@@ -519,15 +520,19 @@ function showQR(qrSrc) {
 // Nút hủy QR
 if(closeQRBtn) closeQRBtn.addEventListener('click', () => qrPopup.style.display = "none");
 
-// Giả lập thanh toán thành công
 function simulatePaymentSuccess() {
-    setTimeout(() => {
-        hideQR();
-        paymentStatusTitle.textContent = "✅ Thanh toán thành công!";
-        paymentStatusMessage.innerHTML = qrPopup.dataset.invoiceHTML || "";
-        paymentStatusPopup.style.display = "flex";
-    }, 8000); 
+  window.paymentTimeout = setTimeout(() => {
+      // Chỉ hiển thị nếu popup QR đang mở
+      if(qrPopup.style.display !== "none") {
+          hideQR();
+          paymentStatusTitle.textContent = "✅ Thanh toán thành công!";
+          paymentStatusMessage.innerHTML = qrPopup.dataset.invoiceHTML || "";
+          paymentStatusPopup.style.display = "flex";
+      }
+      window.paymentTimeout = null;
+  }, 8000); 
 }
+
 
 // Countdown QR
 function startCountdown(seconds) {
@@ -555,14 +560,21 @@ function updateCountdownText(seconds, el){
 }
 
 function hideQR(){
-    qrPopup.style.display = "none";
-    clearInterval(window.countdownInterval);
+  qrPopup.style.display = "none";
+  clearInterval(window.countdownInterval);
+
+  // Hủy simulatePaymentSuccess nếu đang chờ
+  if(window.paymentTimeout) {
+      clearTimeout(window.paymentTimeout);
+      window.paymentTimeout = null;
+  }
 }
+
 
 // Đóng popup thanh toán thành công
 if(closePaymentStatus) closePaymentStatus.addEventListener("click", () => paymentStatusPopup.style.display = "none");
 
-
+//chatbot//
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
