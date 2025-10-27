@@ -584,3 +584,88 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+
+
+// ====== CHECKOUT ======
+document.addEventListener('DOMContentLoaded', () => {
+    // --- DOM Elements ---
+    const voucherInput = document.querySelector('.voucher-input');
+    const voucherBtn = document.querySelector('.voucher-apply-btn');
+    const subtotalDisplay = document.getElementById('subtotal-display');
+    const shippingDisplay = document.getElementById('shipping-display');
+    const discountDisplay = document.querySelector('.cost-row:nth-child(4) span');
+    const totalDisplay = document.getElementById('total-display');
+    const shippingRadios = document.querySelectorAll('input[name="shipping"]');
+
+    // --- Mã voucher ---
+    const vouchers = {
+        "GIAM10": 0.1,      // giảm 10%
+        "GIAM50K": 50000,   // giảm 50.000₫
+        "FREE": 1           // giảm 100%
+    };
+
+    // --- Biến lưu trữ ---
+    let discountCoupon = 0;
+
+    // --- Lấy subtotal và shipping từ DOM ---
+    function getCostsFromDOM() {
+        const subtotal = parseInt(subtotalDisplay?.textContent.replace(/[^\d]/g, '')) || 0;
+        let shipping = 0;
+        shippingRadios.forEach(r => {
+            if (r.checked) shipping = r.value === 'express' ? 30000 : 15000;
+        });
+        return { subtotal, shipping };
+    }
+    function updateCostDisplay() {
+        const { subtotal, shipping } = getCostsFromDOM();
+    
+        const subtotalDisplay = document.getElementById('subtotal-display');
+        const shippingDisplay = document.getElementById('shipping-display');
+        const memberDiscountDisplay = document.querySelector('.member-discount'); // đổi từ .discount-amount
+        const totalDisplay = document.getElementById('total-display');
+    
+        subtotalDisplay.textContent = subtotal.toLocaleString('vi-VN') + "₫";
+        shippingDisplay.textContent = shipping.toLocaleString('vi-VN') + "₫";
+    
+        // Giảm giá hiển thị ngay chỗ member-discount
+        memberDiscountDisplay.textContent = discountCoupon.toLocaleString('vi-VN') + "₫";
+    
+        const total = subtotal + shipping - discountCoupon;
+totalDisplay.textContent = (total > 0 ? total : 0).toLocaleString('vi-VN') + "₫";
+    }
+    
+
+
+    // --- Áp dụng voucher ---
+    if(voucherBtn){
+        voucherBtn.addEventListener('click', () => {
+            const code = voucherInput?.value.toUpperCase().trim();
+            const { subtotal } = getCostsFromDOM();
+
+            if (!code) {
+                alert("Vui lòng nhập mã voucher!");
+                return;
+            }
+
+            if (vouchers[code] !== undefined) {
+                if (vouchers[code] < 1) {
+                    discountCoupon = Math.round(subtotal * vouchers[code]); // giảm % theo subtotal
+                } else {
+                    discountCoupon = vouchers[code]; // giảm tiền cố định
+                }
+                alert(`Voucher hợp lệ! Bạn được giảm ${discountCoupon.toLocaleString('vi-VN')}₫`);
+            } else {
+                discountCoupon = 0;
+                alert("Mã voucher không hợp lệ!");
+            }
+
+            updateCostDisplay();
+        });
+    }
+
+    // --- Thay đổi phí vận chuyển ---
+    shippingRadios.forEach(radio => radio.addEventListener('change', updateCostDisplay));
+
+    // --- Khởi tạo hiển thị ---
+    updateCostDisplay();
+});

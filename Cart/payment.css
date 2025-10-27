@@ -178,7 +178,7 @@ background: #ffe6e6;
 .voucher-input-group {
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: stretch; /* cho các phần tử cao bằng nhau */
 }
 
 .voucher-input {
@@ -189,6 +189,8 @@ background: #ffe6e6;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s ease;
+  height: 48px; /* đặt chiều cao cố định */
+  box-sizing: border-box;
 }
 
 .voucher-input:focus {
@@ -199,12 +201,13 @@ background: #ffe6e6;
   background: #000;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 0 20px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  height: 48px; /* bằng chiều cao input */
 }
 
 .voucher-apply-btn:hover {
