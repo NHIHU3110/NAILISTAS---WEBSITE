@@ -3,6 +3,7 @@
         <title>Thanh toán</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="payment.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     </head>
     <body>
       <!-- Transition Overlay -->
@@ -10,26 +11,26 @@
     <img src="../images/nail logo-01.png" alt="Nailistas Logo">
   </div>
       
-  <!-- Header -->
+              <!-- Header -->
+      <!-- ==================== HEADER ==================== -->
   <header>
     <div class="nav-left">
       <a href="../Blog/Blog.html">Blog</a>
-      <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
-      <a href="Product.html">Sản phẩm</a>
+      <a href="../Booking/Booking.html">Đặt lịch</a>
+      <a href="../">Sản phẩm</a>
       <a href="../Service/service.html">Dịch vụ</a>
     </div>
-  
     <div class="logo-center">
-      <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+        <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
     </div>
-  
     <div class="nav-right">
-      <a href="../contact/contact.html" class="active">Liên hệ</a>
-      <a href="Login.html">Đăng nhập</a>
+      <a href="../contact/contact.html">Liên hệ</a>
+      <a href="../Login/login.html">Đăng nhập</a>
       <a href="../Personal/personal.html">Tài khoản</a>
       <a href="../Cart/cart.html">Giỏ hàng</a>
     </div>
   </header>
+
 
 
 <!-- Two Column Layout -->
@@ -50,25 +51,25 @@
                 <div>
                     <input type="text" placeholder="Nhập số điện thoại">
                 </div>
-                <div>
-                    <select>
-                        <option>Chọn Tỉnh/Thành Phố</option>
-                    </select>
-                </div>
-                <div>
-                    <select>
-                        <option>Chọn Quận/Huyện</option>
-                    </select>
-                </div>
-                <div>
-                    <select>
-                        <option>Chọn Phường/Xã</option>
-                    </select>
-                </div>
+                <select id="province">
+                    <option value="">Chọn tỉnh thành</option>
+                  </select>
+                  
+                  <select id="district">
+                    <option value="">Chọn quận/huyện</option>
+                  </select>
+                  
+                  <select id="ward">
+                    <option value="">Chọn phường/xã</option>
+                  </select>
+                  
                 <div>
                     <input type="text" placeholder="Số nhà, đường, khu vực">
                 </div>
             </div>
+
+<div id="map" style="height: 400px; width: 100%; margin-top: 10px;"></div>
+<input type="text" id="fullAddress" placeholder="Địa chỉ đầy đủ" readonly />
 
             <div class="checkbox-line">
                 <input type="checkbox" id="save-info">
@@ -192,6 +193,26 @@
     <button id="closeInvoice">Đóng</button>
   </div>
 </div>
+<div class="popup-overlay" id="qrPopup">
+    <div class="popup-box">
+      <h3>💳 Quét QR để thanh toán</h3>
+      <div id="qrCodeContainer" style="text-align:center; margin:10px 0;">
+        <!-- QR code sẽ được tạo ở đây -->
+        <img id="qrCodeImage" src="" alt="QR Code" style="width:200px;height:200px;">
+      </div>
+      <p>Thời gian còn lại: <span id="countdown">05:00</span></p>
+      <button id="closeQR">Hủy</button>
+    </div>
+  </div>
+  <div class="popup-overlay" id="paymentStatusPopup">
+    <div class="popup-box">
+      <h3 id="paymentStatusTitle">💳 Thanh toán</h3>
+      <p id="paymentStatusMessage"></p>
+      <button id="closePaymentStatus">Đóng</button>
+    </div>
+  </div>
+  
+  
 
         <!-- Footer -->
   <footer>
@@ -226,5 +247,6 @@
     <img src="../images/phone.webp" alt="Phone Icon">
   </a>
   <script src="payment.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     </body>
 </html>

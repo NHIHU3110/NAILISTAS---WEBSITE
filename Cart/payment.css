@@ -426,33 +426,28 @@ text-decoration: none;
 transform: translateY(-2px);
 }
 
-/*HEADER*/
-/* ---- Header ---- */
+ /* ==================== HEADER ==================== */
 header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: rgba(25, 53, 225, 0.9);
+  background-color: rgba(25, 53, 225, 1);
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  font-family: 'Montserrat', sans-serif;
+  color:floralwhite;
 }
 
-/* Bên trái */
-.nav-left {
+/* NAVIGATION */
+.nav-left, .nav-right {
   display: flex;
   gap: 20px;
 }
 
-/* Bên phải */
-.nav-right {
-  display: flex;
-  gap: 20px;
-}
-
-/* Logo ở giữa */
+/* LOGO */
 .logo-center {
   position: absolute;
   left: 50%;
@@ -463,49 +458,22 @@ header {
 }
 
 .logo-center img {
-  height: 100px;
+  height: 60px;
   cursor: pointer;
   transition: transform 0.4s ease;
 }
 
-/* Hover chỉ scale, không di chuyển */
 .logo-center img:hover {
   transform: scale(1.1);
 }
-
-/* Hiệu ứng hover cho link trong header */
 header a {
-  position: relative;
-  color: #fff;
+  color: #fff !important;  /* đảm bảo trắng */
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s ease;
 }
 
-/* Tạo gạch chân ẩn ban đầu */
-header a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  width: 100%;
-  height: 2px;
-  background-color: #ffffff; /* Hồng nhạt cho đẹp */
-  transition: transform 0.3s ease;
-}
-
-/* Khi hover: đổi màu chữ và cho gạch chân trượt ra */
 header a:hover {
-  color: #ffffff;
+  text-decoration: underline;
 }
-
-header a:hover::after {
-  transform: translateX(-50%) scaleX(1);
-}
-/*HEADER*/
 
 
 /* --- Nút Facebook cố định --- */
@@ -544,7 +512,7 @@ filter: brightness(1.2);
 .nav-left a { color: #fff; text-decoration: none; font-weight: 500; font-size: 1rem; }
 .nav-left a:hover { text-decoration: underline; }
 .logo-center { display: flex; justify-content: center; align-items: center; flex: 1; }
-.logo-center img { height: 40px; }
+.logo-center img { height: 60px; }
 
 h2 {
 color: #1935E1;
@@ -770,74 +738,72 @@ animation: pulse 1.2s infinite alternate;
 from { transform: scale(1); opacity: 1; }
 to   { transform: scale(1.12); opacity: .9; }
 }
+  /* --- Nút Facebook cố định --- */
+  .facebook-fixed {
+    position: fixed;
+    bottom: 120px;
+    right: 25px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
 
-    /* --- Nút Facebook cố định --- */
-    .facebook-fixed {
-      position: fixed;
-      bottom: 120px;
-      right: 25px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
-    }
+  .facebook-fixed img {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0.7);
+    transition: all 0.3s ease;
+  }
 
-    .facebook-fixed img {
-      width: 50px;
-      height: 50px;
-      filter: brightness(0.7);
-      transition: all 0.3s ease;
-    }
+  .facebook-fixed:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+  }
 
-    .facebook-fixed:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
-    }
+  .facebook-fixed:hover img {
+    filter: brightness(1.2);
+  }
 
-    .facebook-fixed:hover img {
-      filter: brightness(1.2);
-    }
-
-   /* --- Nút phone cố định --- */
+ /* --- Nút phone cố định --- */
 .phone-fixed {
-  position: fixed;
-  bottom: 200px;
-  right: 25px;
-  z-index: 1000;  /* Nút Facebook */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  overflow: hidden; 
+position: fixed;
+bottom: 200px;
+right: 25px;
+z-index: 1000;  /* Nút Facebook */
+display: flex;
+align-items: center;
+justify-content: center;
+background: white;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+transition: all 0.3s ease;
+overflow: hidden; 
 }
 
 .phone-fixed img {
-  width: 50px;
-  height: 50px;
-  filter: brightness(0.7);
-  transition: all 0.3s ease;
+width: 50px;
+height: 50px;
+filter: brightness(0.7);
+transition: all 0.3s ease;
 }
 
 .phone-fixed:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
+transform: scale(1.1);
+box-shadow: 0 6px 15px rgba(0, 51, 255, 0.5);
 }
 
 .phone-fixed:hover img {
-  filter: brightness(1.2);
+filter: brightness(1.2);
 }
-
 
 
  /* ---- Footer ---- */
@@ -853,3 +819,21 @@ footer { background-color: #1935E1; color: #fff8f0; padding: 40px 10%; text-alig
 .summary-row { display: flex; justify-content: space-between; margin-top: 6px; }
 .summary-row.total { font-weight: 700; font-size: 1.05rem; }
 .summary-note { font-size: 12px; color: #666; margin-top: 6px; }
+
+.popup-overlay {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
