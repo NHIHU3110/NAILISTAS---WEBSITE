@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm sơn móng | Nailistas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background-color: #feffef; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+
+        /* 🔹 HEADER */
+header {
+  position: fixed; /* cố định đầu trang */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #1935E1; /* nền xanh đồng nhất */
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Bên trái */
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+/* Bên phải */
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+/* Logo ở giữa */
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-center img {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.logo-center img:hover {
+  transform: scale(1.1);
+}
+
+/* 🔹 Link style */
+header a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Gạch chân ẩn ban đầu */
+header a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Hover: hiển thị gạch chân trắng */
+header a:hover {
+  color: #fff;
+}
+
+header a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Link active (trang hiện tại) */
+header a.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+/* Giữ nội dung không bị header che */
+body {
+  padding-top: 90px;
+}
+
+
+/* Giữ nội dung không bị che */
+body {
+  padding-top: 80px; /* tránh header đè nội dung */
+}
+
+/* 🔹 Hiệu ứng overlay chuyển trang */
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1935E1; /* màu xanh thương hiệu */
+  opacity: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease;
+  z-index: 2000;
+}
+
+    h2 { color: #1935E1; text-align: center; margin-top: 40px; }
+
+    #back-button { position: absolute; top: 100px; left: 20px; background: transparent; border: none; cursor: pointer; width: 42px; height: 42px; padding: 0; z-index: 999; }
+    #back-button img { width: 38px; height: 38px; transition: transform 0.2s ease; }
+    #back-button:hover img { transform: translateX(-3px); }
+
+    .filter-bar { width: 90%; margin: 20px auto; text-align: right; }
+    select { padding: 8px 12px; border: 1px solid #1935E1; border-radius: 6px; font-size: 15px; cursor: pointer; }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
+      gap: 25px;
+      justify-content: center;
+      margin: 25px auto;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #f5f5dc;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 280px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover { transform: translateY(-5px); }
+
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .product-info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
+    .product-details { text-align: left; }
+    .product-details h3 { margin: 0; font-size: 16px; color: #222; }
+    .product-details p { margin: 4px 0 0; font-weight: 600; color: #000; }
+
+    .btn-cart { background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .btn-cart img { width: 26px; height: 26px; transition: transform 0.3s ease; }
+    .btn-cart img:hover { transform: scale(1.15); }
+
+    #pagination { display: flex; justify-content: center; margin: 30px 0; flex-wrap: wrap; gap: 5px; }
+    #pagination button { padding: 6px 12px; border-radius: 5px; border: 1px solid #1935E1; background: #fff; color: #1935E1; cursor: pointer; }
+    #pagination button.active, #pagination button:hover { background: #1935E1; color: #fff; }
+
+    #cart-popup { display: none; position: fixed; bottom: 40px; right: 40px; background-color: #1935E1; color: white; padding: 14px 24px; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.3s; z-index: 9999; }
+
+    footer { background-color: #fff8f0; padding: 40px 20px; text-align: center; border-top: 1px solid #f5f5dc; margin-top: 40px; }
+    .footer-container { display: flex; justify-content: space-around; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-section { margin: 10px; }
+    .footer-section h3 { color: #1935E1; margin-bottom: 10px; }
+    .footer-section a { color: #540D3E; text-decoration: none; }
+    .footer-section a:hover { text-decoration: underline; }
+
+    /* 🔹 NÚT LÊN ĐẦU TRANG THEO TEMPLATE */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #feffef;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, transform 0.3s ease, visibility 0.4s;
+      z-index: 9999;
+    }
+    #scrollTopBtn.show { opacity: 1; visibility: visible; }
+    #scrollTopBtn img { width: 28px; height: 28px; filter: brightness(0) saturate(100%) invert(13%) sepia(90%) saturate(2100%) hue-rotate(210deg); }
+    #scrollTopBtn:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+ <!-- 🔹 HEADER -->
+<header>
+  <div class="nav-left">
+    <a href="../Blog/Blog.html" data-transition>Blog</a>
+    <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
+    <a href="Product.html" data-transition class="active">Sản phẩm</a>
+    <a href="../Service/service.html" data-transition>Dịch vụ</a>
+  </div>
+
+  <div class="logo-center">
+    <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+  </div>
+
+  <div class="nav-right">
+    <a href="../contact/contact.html" data-transition>Liên hệ</a>
+    <a href="Login.html" data-transition>Đăng nhập</a>
+    <a href="PersonalPage.html" data-transition>Tài khoản</a>
+    <a href="../Cart/cart.html" data-transition>Giỏ hàng</a>
+  </div>
+</header>
+
+<!-- 🔹 Overlay hiệu ứng chuyển trang -->
+<div id="transition-overlay"></div>
+
+
+  <button id="back-button"><img src="../images/left_arrow.png" alt="Back"></button>
+
+  <h2>SẢN PHẨM SƠN MÓNG</h2>
+
+  <div class="filter-bar">
+    <label for="sortFilter">Sắp xếp theo:</label>
+    <select id="sortFilter">
+      <option value="az">Tên (A → Z)</option>
+      <option value="za">Tên (Z → A)</option>
+      <option value="priceAsc">Giá tăng dần</option>
+      <option value="priceDesc">Giá giảm dần</option>
+    </select>
+  </div>
+
+  <div class="product-container" id="product-container"></div>
+  <div id="pagination"></div>
+  <div id="cart-popup"></div>
+
+  <!-- 🔹 NÚT LÊN ĐẦU TRANG -->
+  <button id="scrollTopBtn"><img src="../images/up_arrow.png" alt="Lên đầu trang"></button>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Hệ thống chi nhánh</h3>
+        <p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p>
+        <p>📍 25 Lý Thường Kiệt, Hà Nội</p>
+        <p>📍 08 Bạch Đằng, Đà Nẵng</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liên hệ</h3>
+        <p>📞 Hotline: <strong>0909 888 777</strong></p>
+        <p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Chính sách</h3>
+        <p><a href="#">Chính sách bảo mật</a></p>
+        <p><a href="#">Điều khoản dịch vụ</a></p>
+      </div>
+    </div>
+    <hr>
+    <p>&copy; Nailistas Việt Nam</p>
+  </footer>
+
+  <script>
+       // 🔹 Hiệu ứng khi nhấn logo – trở về trang chủ
+  function goHome() {
+    const overlay = document.getElementById('transition-overlay');
+    overlay.style.display = 'flex';
+    overlay.style.opacity = '1';
+    setTimeout(() => {
+      window.location.href = "ck.html"; // 🔹 Trang chủ của bạn
+    }, 800);
+  }
+
+    const itemsPerPage = 15;
+    let currentPage = 1;
+    let polishProducts = [];
+    const popup = document.getElementById('cart-popup');
+    const sortSelect = document.getElementById('sortFilter');
+
+    function formatVND(price) {
+      const num = Number(price) || 0;
+      return num.toLocaleString("vi-VN") + " VND";
+    }
+
+    function parsePrice(price) {
+      return Number(price) || 0;
+    }
+
+    function sortProducts(list, type) {
+      const sorted = [...list];
+      switch (type) {
+        case 'az': sorted.sort((a,b)=>a[1].name.localeCompare(b[1].name)); break;
+        case 'za': sorted.sort((a,b)=>b[1].name.localeCompare(a[1].name)); break;
+        case 'priceAsc': sorted.sort((a,b)=>parsePrice(a[1].price)-parsePrice(b[1].price)); break;
+        case 'priceDesc': sorted.sort((a,b)=>parsePrice(b[1].price)-parsePrice(a[1].price)); break;
+      }
+      return sorted;
+    }
+
+    function renderProducts(page = 1) {
+      const container = document.getElementById('product-container');
+      container.innerHTML = '';
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const pageItems = polishProducts.slice(start, end);
+
+      pageItems.forEach(([key, p]) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <a href="Product_detail.html?id=${key}">
+            <img src="${p.img}" alt="${p.name}">
+          </a>
+          <div class="product-info-row">
+            <div class="product-details">
+              <h3>${p.name}</h3>
+              <p>${formatVND(p.price)}</p>
+            </div>
+            <button class="btn-cart" data-id="${key}">
+              <img src="../images/cart.png" alt="Cart">
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      renderPagination(page);
+      attachCartEvents();
+      renderAverageRatings(); // ⭐ Gọi sau khi render
+    }
+
+    function renderPagination(page) {
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      const totalPages = Math.ceil(polishProducts.length / itemsPerPage);
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if (i === page) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          renderProducts(currentPage);
+        });
+        pagination.appendChild(btn);
+      }
+    }
+
+    function attachCartEvents() {
+      document.querySelectorAll('.btn-cart').forEach(btn => {
+        btn.onclick = () => {
+          const pid = btn.getAttribute('data-id');
+          const product = Object.fromEntries(polishProducts)[pid];
+          if (!product) return;
+
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const existing = cart.find(item => item.id === pid);
+          if (existing) existing.quantity += 1;
+          else cart.push({ ...product, id: pid, quantity: 1 });
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          popup.textContent = `${product.name} đã được thêm vào giỏ hàng!`;
+          popup.style.display = 'block';
+          popup.style.opacity = 1;
+          setTimeout(() => {
+            popup.style.opacity = 0;
+            setTimeout(() => popup.style.display = 'none', 300);
+          }, 1500);
+        };
+      });
+    }
+
+    // ⭐ HIỂN THỊ SAO TRUNG BÌNH CHO SẢN PHẨM
+    function renderAverageRatings() {
+      const ratings = JSON.parse(localStorage.getItem("ratings") || "{}");
+      document.querySelectorAll(".product-card").forEach(card => {
+        const productId = card.querySelector(".btn-cart")?.getAttribute("data-id");
+        if (!productId) return;
+        const avgRating = parseFloat(ratings[productId]) || 0;
+        const fullStars = Math.round(avgRating);
+        const emptyStars = 5 - fullStars;
+        const stars = "★".repeat(fullStars) + "☆".repeat(emptyStars);
+        const ratingHTML = `
+          <div class="product-stars" style="color:gold; font-size:20px; margin:5px 0; text-align:left;">
+            ${stars}
+            <span style="color:#333; font-size:15px;">(${avgRating.toFixed(1)})</span>
+          </div>
+        `;
+        const nameEl = card.querySelector(".product-details h3");
+        const priceEl = card.querySelector(".product-details p");
+        if (nameEl && priceEl) {
+          const old = card.querySelector(".product-stars");
+          if (old) old.remove();
+          priceEl.insertAdjacentHTML("beforebegin", ratingHTML);
+        }
+      });
+    }
+
+    // 🔄 Cập nhật realtime khi localStorage thay đổi
+    window.addEventListener("storage", e => {
+      if (e.key === "ratings") renderAverageRatings();
+    });
+
+    // 🔹 Fetch dữ liệu
+    fetch('../data/products.json')
+      .then(res => res.json())
+      .then(products => {
+        polishProducts = Object.entries(products).filter(([_, p]) => p.type === 'polish');
+        polishProducts = sortProducts(polishProducts, 'az');
+        renderProducts(currentPage);
+      })
+      .catch(err => console.error('Lỗi load sản phẩm:', err));
+
+    sortSelect.addEventListener('change', () => {
+      polishProducts = sortProducts(polishProducts, sortSelect.value);
+      renderProducts(1);
+    });
+
+    document.getElementById('back-button').onclick = () => {
+      if (document.referrer) window.history.back();
+      else window.location.href = 'Product.html';
+    };
+
+
+    
+    // 🔹 NÚT LÊN ĐẦU TRANG
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) scrollTopBtn.classList.add('show');
+      else scrollTopBtn.classList.remove('show');
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

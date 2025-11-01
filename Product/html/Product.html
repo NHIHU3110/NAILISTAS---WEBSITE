@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm | Nailistas</title>
+  <link rel="stylesheet" href="../css/product_style.css">
+</head>
+
+<!-- 🔹 HEADER -->
+<header>
+  <div class="nav-left">
+    <a href="../Blog/Blog.html" data-transition>Blog</a>
+    <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
+    <a href="Product.html" data-transition class="active">Sản phẩm</a>
+    <a href="../Service/service.html" data-transition>Dịch vụ</a>
+  </div>
+
+  <div class="logo-center">
+    <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+  </div>
+
+  <div class="nav-right">
+    <a href="../contact/contact.html" data-transition>Liên hệ</a>
+    <a href="Login.html" data-transition>Đăng nhập</a>
+    <a href="PersonalPage.html" data-transition>Tài khoản</a>
+    <a href="../Cart/cart.html" data-transition>Giỏ hàng</a>
+  </div>
+</header>
+
+<!-- 🔹 Overlay hiệu ứng chuyển trang -->
+<div id="transition-overlay"></div>
+
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+    <button id="searchBtn">
+      <img src="../images/scope.png" alt="Search">
+    </button>
+  </div>
+
+  <!-- CATEGORY 1 -->
+  <section class="category-section">
+    <h2>SẢN PHẨM SƠN MÓNG</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="../images/nailpolish1.jpg" alt="Sơn móng tay cao cấp" onclick="location.href='Product_detail.html?id=sonmong1'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Sơn móng tay cao cấp</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 120.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Sơn móng tay cao cấp" data-price="120000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/gelpolish.jpg" alt="Gel móng tay siêu bền" onclick="location.href='Product_detail.html?id=sonmong2'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Gel móng tay siêu bền</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 180.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Gel móng tay siêu bền" data-price="180000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/topcoat.jpg" alt="Sơn phủ bóng" onclick="location.href='Product_detail.html?id=sonmong3'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Sơn phủ bóng</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 150.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Sơn phủ bóng" data-price="150000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more">
+      <a href="nail_polish.html">Xem thêm sản phẩm sơn móng</a>
+    </div>
+  </section>
+
+  <!-- CATEGORY 2 -->
+  <section class="category-section">
+    <h2>DỤNG CỤ CƠ BẢN</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="../images/nailkit.jpg" alt="Bộ dụng cụ làm móng" onclick="location.href='Product_detail.html?id=dungcu1'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Bộ dụng cụ làm móng</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 350.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Bộ dụng cụ làm móng" data-price="350000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/nailfile.jpg" alt="Dũa móng tay chuyên dụng" onclick="location.href='Product_detail.html?id=dungcu2'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Dũa móng tay chuyên dụng</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 45.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Dũa móng tay chuyên dụng" data-price="45000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/brush.jpg" alt="Cọ vẽ móng nghệ thuật" onclick="location.href='Product_detail.html?id=dungcu3'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Cọ vẽ móng nghệ thuật</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 90.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Cọ vẽ móng nghệ thuật" data-price="90000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more">
+      <a href="basic_tools.html">Xem thêm dụng cụ cơ bản</a>
+    </div>
+  </section>
+
+  <!-- CATEGORY 3 -->
+  <section class="category-section">
+    <h2>SẢN PHẨM NAILBOX</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="../images/fakenail1.jpg" alt="Bộ nail giả sang trọng" onclick="location.href='Product_detail.html?id=nailgia1'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Nailbox sang trọng</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 200.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Nailbox sang trọng" data-price="200000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/fakenail2.jpg" alt="Nailbox đính đá" onclick="location.href='Product_detail.html?id=nailgia2'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Nailbox đính đá</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 250.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Nailbox đính đá" data-price="250000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../images/fakenail3.jpg" alt="Nailbox phong cách Hàn" onclick="location.href='Product_detail.html?id=nailgia3'">
+        <div class="product-info">
+          <div class="product-text">
+            <h3 class="product-name">Nailbox phong cách Hàn</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-value">(0.0)</span>
+            </div>
+            <p>Giá: 230.000 VND</p>
+          </div>
+          <button class="btn-cart" data-name="Nailbox phong cách Hàn" data-price="230000">
+            <img src="../images/cart.png" alt="Thêm vào giỏ hàng">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more">
+      <a href="fake_nails.html">Xem thêm sản phẩm nailbox</a>
+    </div>
+  </section>
+
+  <!-- 🔹 Nút lên đầu trang -->
+  <button id="scrollTopBtn">
+    <img src="../images/up_arrow.png" alt="Lên đầu trang">
+  </button>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Hệ thống chi nhánh</h3>
+        <p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p>
+        <p>📍 25 Lý Thường Kiệt, Hà Nội</p>
+        <p>📍 08 Bạch Đằng, Đà Nẵng</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liên hệ</h3>
+        <p>📞 Hotline: <strong>0909 888 777</strong></p>
+        <p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Chính sách</h3>
+        <p><a href="#">Chính sách bảo mật</a></p>
+        <p><a href="#">Điều khoản dịch vụ</a></p>
+      </div>
+    </div>
+    <hr>
+    <p>&copy; Nailistas Việt Nam</p>
+  </footer>
+
+  <!-- 🔹 Popup thông báo thêm giỏ hàng -->
+<!-- 🔹 Overlay nền mờ -->
+<div id="overlay" onclick="toggleCartPopup()"></div>
+
+<!-- 🔹 Popup giỏ hàng chi tiết -->
+<div id="cart-popup">
+  <button class="close-btn" onclick="toggleCartPopup()">×</button>
+  <h3>🛒 Giỏ hàng (<span id="cart-count-title">2</span>)</h3>
+  <div class="cart-content">
+    <div class="cart-item">
+      <img src="../images/background.png" alt="Sản phẩm 1">
+      <div class="cart-item-info">
+        <h4>Sản phẩm 1</h4>
+        <div class="bottom-row">
+          <div class="quantity-box">
+            <button class="qty-btn" onclick="updateQuantity('decrement', 1)">−</button>
+            <input type="number" value="1" class="qty-input" readonly/>
+            <button class="qty-btn" onclick="updateQuantity('increment', 1)">+</button>
+          </div>
+          <p>100.000₫</p>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeItem(1)">×</button>
+    </div>
+
+    <div class="cart-item">
+      <img src="../images/nailbox1.jpg" alt="Sản phẩm 2">
+      <div class="cart-item-info">
+        <h4>Sản phẩm 2</h4>
+        <div class="bottom-row">
+          <div class="quantity-box">
+            <button class="qty-btn" onclick="updateQuantity('decrement', 2)">−</button>
+            <input type="number" value="1" class="qty-input" readonly/>
+            <button class="qty-btn" onclick="updateQuantity('increment', 2)">+</button>
+          </div>
+          <p>200.000₫</p>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeItem(2)">×</button>
+    </div>
+  </div>
+
+  <div class="checkout-container">
+    <div class="checkout-text">
+      Tạm tính: <span id="cart-total-amount">300.000₫</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Thanh toán</button>
+  </div>
+</div>
+
+  <script src="../js/product.js"></script>
+</body>
+</html>

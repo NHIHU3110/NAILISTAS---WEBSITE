@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm | Nailistas</title>
+  <link rel="stylesheet" href="../css/product_detail_style.css">
+</head>
+<body>
+
+<!-- 🔹 HEADER -->
+<header>
+  <div class="nav-left">
+    <a href="../Blog/Blog.html" data-transition>Blog</a>
+    <a href="../Booking/Booking.html" data-transition>Đặt lịch</a>
+    <a href="Product.html" data-transition class="active">Sản phẩm</a>
+    <a href="../Service/service.html" data-transition>Dịch vụ</a>
+  </div>
+
+  <div class="logo-center">
+    <img src="../images/nail logo-01.png" alt="Logo Nailistas" onclick="goHome()">
+  </div>
+
+  <div class="nav-right">
+    <a href="../contact/contact.html" data-transition>Liên hệ</a>
+    <a href="Login.html" data-transition>Đăng nhập</a>
+    <a href="PersonalPage.html" data-transition>Tài khoản</a>
+    <a href="../Cart/cart.html" data-transition>Giỏ hàng</a>
+
+  </div>
+</header>
+
+<!-- 🔹 Overlay hiệu ứng chuyển trang -->
+<div id="transition-overlay"></div>
+
+<!-- 🔹 Nút quay lại -->
+<div id="back-button">
+  <img src="../images/left_arrow.png" alt="Back">
+</div>
+
+<!-- 🔹 Khu vực chi tiết sản phẩm -->
+<main>
+
+  <!-- ✅ Breadcrumb: để JS tự thêm -->
+  <nav id="breadcrumb-container" class="breadcrumb" style="display:none;">
+    <a href="../html/ck.html" id="breadcrumb-home">NAILISTAS</a>
+    <span class="divider">/</span>
+    <a id="breadcrumb-category" href="#"></a>
+    <span class="divider">/</span>
+    <span id="breadcrumb-product"></span>
+  </nav>
+
+  <div id="loading-message">Đang tải sản phẩm...</div>
+  <div class="product-detail-container" id="product-detail"></div>
+
+
+
+
+  <div class="recommendation-section">
+    <div class="recommendation-header">
+      <h3>Sản phẩm gợi ý</h3>
+    </div>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="recommendation-carousel"></div>
+      <div class="carousel-arrow arrow-left" id="arrow-left">
+        <img src="../images/left_arrow.png" alt="Left">
+      </div>
+      <div class="carousel-arrow arrow-right" id="arrow-right">
+        <img src="../images/right_arrow.png" alt="Right">
+      </div>
+    </div>
+  </div>
+</main>
+<div id="cart-popup"></div>
+
+<!-- 🔹 Nút lên đầu trang -->
+<button id="scrollTopBtn">
+  <img src="../images/up_arrow.png" alt="Lên đầu trang">
+</button>
+
+<!-- 🔹 Khu vực hiển thị đánh giá -->
+<section class="review-section" id="review-section">
+  <h3>Đánh giá sản phẩm</h3>
+
+  <!-- 🔹 Bộ lọc review -->
+  <div class="review-filters">
+    <label for="filter-star">Lọc theo sao:</label>
+    <select id="filter-star">
+      <option value="all">Tất cả</option>
+      <option value="5">5 ★</option>
+      <option value="4">4 ★</option>
+      <option value="3">3 ★</option>
+      <option value="2">2 ★</option>
+      <option value="1">1 ★</option>
+    </select>
+
+    <label for="filter-time">Sắp xếp:</label>
+    <select id="filter-time">
+      <option value="newest">Mới nhất</option>
+      <option value="oldest">Cũ nhất</option>
+    </select>
+  </div>
+
+  <div id="review-summary" class="review-summary">
+    <span id="review-count">Reviews (0)</span>
+    <span id="average-rating">0.0 ★★★★★</span>
+  </div>
+
+
+  <div id="review-list"></div>
+  <button id="leave-review-btn">Để lại đánh giá</button>
+</section>
+
+<!-- 🔹 Popup Form Đánh giá -->
+<div id="review-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="close-popup">&times;</span>
+    <h3>Để lại đánh giá của bạn</h3>
+    <form id="review-form">
+      <label for="name">Tên của bạn:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label>Đánh giá:</label>
+      <div class="star-rating">
+        <span data-value="5">&#9733;</span>
+        <span data-value="4">&#9733;</span>
+        <span data-value="3">&#9733;</span>
+        <span data-value="2">&#9733;</span>
+        <span data-value="1">&#9733;</span>
+      </div>
+
+      <label for="review-content">Nội dung đánh giá:</label>
+      <textarea id="review-content" rows="4" required></textarea>
+
+      <button type="submit">Gửi đánh giá</button>
+    </form>
+  </div>
+</div>
+
+<!-- 🔹 Popup thông báo -->
+<div id="review-success-popup" class="success-popup">
+  <div class="success-popup-content">
+    <img src="../images/check.png" alt="success" id="popup-icon">
+    <p id="success-popup-message">Cảm ơn bạn đã gửi đánh giá 💅</p>
+  </div>
+</div>
+
+<!-- 🔹 FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Hệ thống chi nhánh</h3>
+      <p>📍 12 Nguyễn Huệ, Quận 1, TP.HCM</p>
+      <p>📍 25 Lý Thường Kiệt, Hà Nội</p>
+      <p>📍 08 Bạch Đằng, Đà Nẵng</p>
+    </div>
+    <div class="footer-section">
+      <h3>Liên hệ</h3>
+      <p>📞 Hotline: <strong>0909 888 777</strong></p>
+      <p>📧 Email: <a href="mailto:contact@nailistas.vn">contact@nailistas.vn</a></p>
+    </div>
+    <div class="footer-section">
+      <h3>Chính sách</h3>
+      <p><a href="#">Chính sách bảo mật</a></p>
+      <p><a href="#">Điều khoản dịch vụ</a></p>
+    </div>
+  </div>
+  <hr>
+  <p>&copy; Nailistas Việt Nam</p>
+</footer>
+<script src="../js/product_detail.js"></script>
+</body>
+</html>

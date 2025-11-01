@@ -1,0 +1,628 @@
+body {
+  background-color: #feffef;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 70px;
+}
+
+/* 🔹 HEADER */
+header {
+  position: fixed; /* cố định đầu trang */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #1935E1; /* nền xanh đồng nhất */
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Bên trái */
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+/* Bên phải */
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+/* Logo ở giữa */
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-center img {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.logo-center img:hover {
+  transform: scale(1.1);
+}
+
+/* 🔹 Link style */
+header a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Gạch chân ẩn ban đầu */
+header a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Hover: hiển thị gạch chân trắng */
+header a:hover {
+  color: #fff;
+}
+
+header a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Link active (trang hiện tại) */
+header a.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+/* Giữ nội dung không bị header che */
+body {
+  padding-top: 90px;
+}
+
+
+/* Giữ nội dung không bị che */
+body {
+  padding-top: 80px; /* tránh header đè nội dung */
+}
+
+/* 🔹 Hiệu ứng overlay chuyển trang */
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1935E1; /* màu xanh thương hiệu */
+  opacity: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease;
+  z-index: 2000;
+}
+
+/* 🔹 Nút Back */
+#back-button {
+  display: inline-block;
+  cursor: pointer;
+  margin: 20px 50px 0 50px;
+}
+#back-button img {
+  width: 30px; height: 30px;
+  transition: transform 0.2s ease;
+}
+#back-button img:hover { transform: scale(1.2); }
+
+/* 🔹 Main layout */
+main {
+  max-width: 1000px;
+  margin: 20px auto 50px auto;
+  background-color: #fff;
+  border: 1px solid #f5f5dc;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 40px;
+}
+
+.product-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.product-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+.product-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-info { flex: 1 1 400px; }
+.product-info h2 { color: #1935E1; margin-bottom: 10px; }
+.price {
+  font-size: 20px;
+  color: #9F4E6E;
+  margin: 15px 0;
+}
+.product-info p {
+  color: #540D3E;
+  line-height: 1.6;
+}
+
+/* 🔹 Nút số lượng + giỏ hàng */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quantity-container input[type="number"] {
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.qty-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.1s ease;
+}
+.qty-btn img { width: 24px; height: 24px; }
+.qty-btn:active { transform: scale(0.9); }
+
+.btn-cart img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btn-cart img:hover { transform: scale(1.1); }
+
+/* 🔹 Popup thêm giỏ */
+#cart-popup {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #1935E1;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
+}
+#cart-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔹 Carousel gợi ý */
+.recommendation-section { margin-top: 50px; }
+.recommendation-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 10px;
+}
+.recommendation-header h3 { color: #1935E1; margin: 0; }
+.carousel-wrapper { position: relative; }
+.carousel {
+  display: flex; gap: 15px;
+  overflow-x: auto; scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel-card {
+  flex: 0 0 200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.carousel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.carousel-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.carousel-card h4 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+  color: #1935E1;
+}
+.carousel-card p {
+  font-size: 14px;
+  color: #9F4E6E;
+  margin: 0;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px; height: 30px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.arrow-left { left: -15px; }
+.arrow-right { right: -15px; }
+.carousel-arrow img { width: 20px; height: 20px; }
+
+/* 🔹 Footer */
+footer {
+  background-color: #fff8f0;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #f5f5dc;
+  margin-top: 40px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.footer-section h3 {
+  color: #1935E1;
+  margin-bottom: 10px;
+}
+.footer-section a {
+  color: #540D3E;
+  text-decoration: none;
+}
+.footer-section a:hover { text-decoration: underline; }
+
+/* 🔹 Nút lên đầu trang */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #feffef;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.3s ease, visibility 0.4s, box-shadow 0.3s ease;
+  z-index: 9999;
+}
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+#scrollTopBtn img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(90%) saturate(2100%) hue-rotate(210deg);
+}
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.breadcrumb-container {
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+.breadcrumb a {
+  color: #9F4E6E;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #333;
+}
+
+/* 🔹 Review section chính */
+.review-section {
+  margin: 50px auto;
+  padding: 30px;
+  width: 85%;
+  max-width: 900px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.review-section h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.review-section .review-message {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* 🔹 Tóm tắt đánh giá (số lượng & điểm trung bình) */
+.review-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.review-summary #review-count {
+  font-weight: 500;
+}
+
+.review-summary #average-rating {
+  font-weight: 600;
+  color: #E9B30E; /* màu vàng nhẹ cho sao */
+}
+
+/* 🔹 Nút để lại đánh giá */
+#leave-review-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #2d2d2d;
+  background: transparent;
+  border: 1.5px solid #2d2d2d;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#leave-review-btn:hover {
+  background-color: #9F4E6E;
+  color: #fff;
+  border-color: #9F4E6E;
+}
+
+/* 🔹 Popup Overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 Popup nội dung */
+.popup-content {
+  background-color: #feffef;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🔹 Nút đóng popup */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* 🔹 Form đánh giá */
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#review-form input, 
+#review-form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+}
+#review-form button {
+  background-color: #1935E1;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#review-form button:hover {
+  background-color: #1028b0;
+}
+
+/* 🔹 Star rating */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.star-rating span {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+.star-rating span.active,
+.star-rating span:hover,
+.star-rating span:hover ~ span {
+  color: gold;
+}
+
+/* 🔹 Danh sách đánh giá (khi JS render vào #review-list) */
+#review-list {
+  margin-top: 20px;
+  text-align: left;
+}
+#review-list .review {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+#review-list .review .reviewer-name {
+  font-weight: 600;
+  color: #1935E1;
+}
+#review-list .review .review-text {
+  margin-top: 6px;
+  color: #333;
+  line-height: 1.5;
+}
+#review-list .review .review-stars {
+  color: gold;
+  font-size: 18px;
+}
+/* 🔹 Popup cảm ơn đánh giá */
+.success-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.success-popup.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-popup-content {
+  background: #fff;
+  padding: 25px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: popIn 0.3s ease;
+}
+
+.success-popup-content img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.success-popup-content p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* 🔹 Bộ lọc review */
+.review-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.review-filters label {
+  font-weight: 500;
+  color: #444;
+}
+
+.review-filters select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.review-filters select:hover {
+  border-color: #9F4E6E;
+}
